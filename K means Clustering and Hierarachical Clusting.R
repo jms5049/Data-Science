@@ -25,3 +25,14 @@ kc$cluster
 
 plot(z, col = kc$cluster, xlab = "x1" , ylab ="x2")
 points(kc$centers, col = 1:3, pch = 8, cex=2)
+
+#hiearchy clustering
+distance <- 1/dist(z)
+
+hierachy <- hclust(distance, method = "complete", members=NULL)
+
+#plot on graph
+par(mfrow = c(2, 2))
+plot(hierachy, hang = 0.1)
+plot(hierachy, hang = -1)
+plot(as.dendrogram(hierachy), edgePar= list(col=3, lwd=4), horiz=T)
