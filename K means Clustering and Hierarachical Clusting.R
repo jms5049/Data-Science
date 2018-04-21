@@ -26,7 +26,7 @@ kc$cluster
 plot(z, col = kc$cluster, xlab = "x1" , ylab ="x2")
 points(kc$centers, col = 1:3, pch = 8, cex=2)
 
-#hiearchy clustering
+#hierarchy clustering
 distance <- 1/dist(z)
 
 hierachy <- hclust(distance, method = "complete", members=NULL)
