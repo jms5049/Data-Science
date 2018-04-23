@@ -22,3 +22,7 @@ for(i in 1:(length(unique_type))){
 	colnames(type_dummy)[i] = sprintf("type_%s",tmp)
 
 }
+
+rawdata <- rawdata[c(4,2,3,1,5,6)]
+prdata = rawdata[,-1]
+prdata = cbind(type_dummy,prdata)
