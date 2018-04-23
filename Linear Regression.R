@@ -26,3 +26,12 @@ for(i in 1:(length(unique_type))){
 rawdata <- rawdata[c(4,2,3,1,5,6)]
 prdata = rawdata[,-1]
 prdata = cbind(type_dummy,prdata)
+
+#data partition
+
+trn_ratio = 0.7
+trn_idx = sample(1:nrow(prdata), round(trn_ratio * nrow(prdata)))
+tst_idx = setdiff(1:nrow(prdata), trn_idx)
+
+trn_data = prdata[trn_idx,]
+tst_data = prdata[tst_idx,]
