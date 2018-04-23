@@ -35,3 +35,12 @@ tst_idx = setdiff(1:nrow(prdata), trn_idx)
 
 trn_data = prdata[trn_idx,]
 tst_data = prdata[tst_idx,]
+
+#linear regression
+
+fit_lr = lm(Price ~ ., data=trn_data)
+fit_lr
+summary(fit_lr)
+pred_lr = predict(fit_lr, tst_data)
+
+mse_lr = mean((tst_data$Price-pred_lr)^2)
