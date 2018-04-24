@@ -44,3 +44,11 @@ summary(fit_lr)
 pred_lr = predict(fit_lr, tst_data)
 
 mse_lr = mean((tst_data$Price-pred_lr)^2)
+
+#Step Wise
+
+step_lr = step(fit_lr, direction = "both")
+summary(step_lr)
+pred_step = predict(step_lr, tst_data)
+
+mse_step = mean((tst_data$Price-pred_step)^2)
