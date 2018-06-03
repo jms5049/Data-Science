@@ -23,3 +23,11 @@ for(i in 1:length(unique_gender)){
 	new_gender[tmp_idx] = i
 }
 
+## delete old gender variable
+rawdata = rawdata[,-1]
+
+## Min_Max scale for all of the variables
+for(i in 1:ncol(rawdata)){
+	rawdata[,i] = (rawdata[,i] - min(rawdata[,i])) / (max(rawdata[,i]) - min(rawdata[,i]))
+}
+
