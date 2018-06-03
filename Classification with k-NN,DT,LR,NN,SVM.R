@@ -14,3 +14,12 @@ colnames(rawdata) = c("gender", "length", "diameter", "height", "whole_weight", 
 ## unique variable
 unique_gender = unique(rawdata$gender)
 
+## matrix for storing changed target 
+new_gender = matrix(0,nrow(rawdata),1)
+
+## loop to change M, F, I values into numbers
+for(i in 1:length(unique_gender)){
+	tmp_idx = which(rawdata$gender == unique_gender[i])
+	new_gender[tmp_idx] = i
+}
+
