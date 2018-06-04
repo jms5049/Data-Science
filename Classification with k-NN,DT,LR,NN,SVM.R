@@ -47,4 +47,8 @@ tst_idx = setdiff(1:nrow(prdata), trn_idx)
 trn_data = prdata[trn_idx,]
 tst_data = prdata[tst_idx,]
 
+## k-NN
+library(class)
+out_knn = knn(trn_data[,1:(ncol(trn_data)-1)], tst_data[,1:(ncol(tst_data)-1)], trn_data[,ncol(trn_data)], k=3, prob=TRUE)
+
 
