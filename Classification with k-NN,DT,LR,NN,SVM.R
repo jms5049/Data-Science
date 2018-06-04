@@ -51,4 +51,7 @@ tst_data = prdata[tst_idx,]
 library(class)
 out_knn = knn(trn_data[,1:(ncol(trn_data)-1)], tst_data[,1:(ncol(tst_data)-1)], trn_data[,ncol(trn_data)], k=3, prob=TRUE)
 
+## logistic regression
+model_lr = glm(new_gender ~., data = trn_data, family = "binomial")
+out_lr = predict(model_lr, tst_data)
 
