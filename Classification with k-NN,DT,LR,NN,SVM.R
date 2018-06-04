@@ -39,4 +39,12 @@ prdata = prdata[tmp_idx,]
 prdata$new_gender[which(prdata$new_gender == 2)] = 0
 prdata$new_gender = as.factor(prdata$new_gender)
 
+## data partition
+trn_ratio = 0.7
+trn_idx = sample(1:nrow(prdata), round(trn_ratio*nrow(prdata)))
+tst_idx = setdiff(1:nrow(prdata), trn_idx)
+
+trn_data = prdata[trn_idx,]
+tst_data = prdata[tst_idx,]
+
 
