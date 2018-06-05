@@ -92,3 +92,10 @@ out_lr2[tmp_idx1] = 1
 out_lr2[tmp_idx2] = 0
 outs = cbind(outs, out_lr2)
 
+out_tree2 = out_tree[,2]
+tmp_idx1 = which(out_tree2 >= 0.5)
+tmp_idx2 = which(out_tree2 < 0.5)
+out_tree2[tmp_idx1] = 1
+out_tree2[tmp_idx2] = 0
+outs = cbind(outs, out_tree2)
+
