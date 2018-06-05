@@ -85,3 +85,10 @@ out_svm = predict(model_svm, tst_data)
 target = tst_data[,ncol(tst_data)]
 outs = cbind(target, out_knn)
 
+tmp_idx1 = which(out_lr >= 0)
+tmp_idx2 = which(out_lr < 0)
+out_lr2 = out_lr
+out_lr2[tmp_idx1] = 1
+out_lr2[tmp_idx2] = 0
+outs = cbind(outs, out_lr2)
+
