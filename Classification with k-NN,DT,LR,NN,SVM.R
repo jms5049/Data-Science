@@ -80,3 +80,8 @@ library(e1071)
 model_svm = svm(new_gender ~., data = trn_data, type="C-classification", kernel="linear", gamma=10, cost=100)
 out_svm = predict(model_svm, tst_data)
 
+## Analyze Result
+
+target = tst_data[,ncol(tst_data)]
+outs = cbind(target, out_knn)
+
