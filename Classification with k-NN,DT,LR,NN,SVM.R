@@ -99,3 +99,17 @@ out_tree2[tmp_idx1] = 1
 out_tree2[tmp_idx2] = 0
 outs = cbind(outs, out_tree2)
 
+outs = cbind(outs, out_nn, out_svm)
+
+for( i in 1:ncol(outs)){
+	if(length(which(outs[,i]==2)) == 0){
+		next
+	}
+	tmp_idx1 = which(outs[,i]==2)
+	tmp_idx2 = which(outs[,i]==1)
+	
+	outs[tmp_idx1,i] = 1
+	outs[tmp_idx2,i] = 0
+}
+
+
