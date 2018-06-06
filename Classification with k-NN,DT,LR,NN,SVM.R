@@ -112,4 +112,12 @@ for( i in 1:ncol(outs)){
 	outs[tmp_idx2,i] = 0
 }
 
+##print analysis
+library(caret)
+library(lattice)
+confusionMatrix(factor(outs[,2]), factor(outs[,1]))
+confusionMatrix(factor(outs[,3]), factor(outs[,1]))
+confusionMatrix(factor(outs[,4]), factor(outs[,1]))
+confusionMatrix(factor(outs[,5]), factor(outs[,1]))
+confusionMatrix(factor(outs[,6]), factor(outs[,1]))
 
